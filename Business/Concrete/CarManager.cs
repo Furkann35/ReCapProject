@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class CarManager : IBusinessService
+    public class CarManager : ICarService
     {
 
         ICarDal _carDal;
@@ -18,7 +18,10 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            _carDal.Add(car);
+            if (car.CarName.Length > 2 && car.DailyPrice > 0)
+            {
+                _carDal.Add(car);
+            }
         }
 
       
@@ -32,10 +35,20 @@ namespace Business.Concrete
             return _carDal.GetAll();
         }
 
-        public List<Car> GetById(int CategoryId)
-        {
-            return _carDal.GetById(CategoryId);
+        //public List<Car> GetById(int CategoryId)
+        //{
+        //    return _carDal.GetById(CategoryId);
 
+        //}
+
+        public List<Car> GetcarsByBrandId(int BrandId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetcarsByColorId(int ColorId)
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Car car)
