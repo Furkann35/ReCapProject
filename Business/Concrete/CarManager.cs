@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,25 +10,11 @@ namespace Business.Concrete
 {
     public class CarManager : ICarService
     {
-
         ICarDal _carDal;
+
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
-        }
-
-        public void Add(Car car)
-        {
-            if (car.CarName.Length > 2 && car.DailyPrice > 0)
-            {
-                _carDal.Add(car);
-            }
-        }
-
-      
-        public void Delete(Car car)
-        {
-            _carDal.Delete(car);
         }
 
         public List<Car> GetAll()
@@ -35,25 +22,24 @@ namespace Business.Concrete
             return _carDal.GetAll();
         }
 
-        //public List<Car> GetById(int CategoryId)
-        //{
-        //    return _carDal.GetById(CategoryId);
-
-        //}
-
-        public List<Car> GetcarsByBrandId(int BrandId)
+        public List<Car> GetAllByBrandId(int brandId)
         {
-            throw new NotImplementedException();
+            return _carDal.GetAll(b => b.BrandId == brandId);
         }
 
-        public List<Car> GetcarsByColorId(int ColorId)
+        public List<Car> GetAllByColorId(int colorId)
         {
-            throw new NotImplementedException();
+            return _carDal.GetAll(cl => cl.ColorId == colorId);
         }
 
-        public void Update(Car car)
+        public Car GetById(int carId)
         {
-            _carDal.Update(car);
+            return _carDal.Get(c => c.CarId == carId);
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _carDal.GetCarDetails();
         }
     }
 }
