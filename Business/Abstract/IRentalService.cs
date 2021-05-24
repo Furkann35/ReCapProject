@@ -6,7 +6,8 @@ using System.Text;
 
 namespace Business.Abstract
 {
-    public interface IBrandService:IServiceBase<Brand>
+    public interface IRentalService :IServiceBase<Rental>
     {
+        IResult RentalReturn(Rental rental);
     }
 }

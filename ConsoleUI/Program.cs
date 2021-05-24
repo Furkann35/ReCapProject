@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Bussiness.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using System;
@@ -9,8 +10,8 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            GetCarDetails();
-
+            //GetCarDetails();
+            //ColorTest();
             //GetAll();
 
         }
@@ -38,6 +39,22 @@ namespace ConsoleUI
             else
             {
                 Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void ColorTest()
+        {
+            ColorManager colorManager = new ColorManager(new EfColorDal());
+            foreach (var item in colorManager.GetAll().Data)
+            {
+                Console.WriteLine(item.ColorName);
+            }
+
+            UserManager userManager = new UserManager(new EfUserDal());
+            var result = userManager.GetAll();
+            foreach (var item in result.Data)
+            {
+                Console.WriteLine(item.FirstName + " / " + item.LastName + " / " + item.Email);
             }
         }
     }
