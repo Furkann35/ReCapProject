@@ -11,6 +11,10 @@ namespace Business.Constants
         public static string CarAdded = "Araba eklendi" ;
         public static string CarNameMinTwoCharacters = "Araba ismi minimüm 2 karakter olmalıdır." ;
         public static string CarDeleted = "Araç silindi" ;
+        public static string CarListed = "Araç listelendi" ;
+
+        public static string BrandListed = "Marka Listelendi" ;
+        public static string BrandAdded = "Marka eklendi" ;
 
         public static string ColorAdded = "Renk eklendi" ;
         public static string ColorDeleted = "Renk silindi" ;
