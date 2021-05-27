@@ -37,6 +37,7 @@ namespace Business.Concrete
                 return new ErrorResult(carImageResult.Message);
             }
             carImage.ImagePath = carImageResult.Message;
+            carImage.Date = DateTime.Now;
             _carImageDal.Add(carImage);
             return new SuccessResult(Messages.CarImageAdded);
         }
@@ -105,7 +106,7 @@ namespace Business.Concrete
                 if (!result)
                 {
                     List<CarImage> carimage = new List<CarImage>();
-                    carimage.Add(new CarImage { CarId = carId, ImagePath = path });
+                    carimage.Add(new CarImage { CarId = carId, ImagePath = path ,Date = DateTime.Now});
                     return new SuccessDataResult<List<CarImage>>(carimage);
                 }
             }
