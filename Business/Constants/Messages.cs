@@ -30,6 +30,10 @@ namespace Business.Constants
         public static string UserAdded = "Kullanıcı eklendi" ;
         public static string UserDeleted = "Kullanıcı silindi" ;
 
-
+        public static string CarImageAdded = "Araç resmi eklendi";
+        public static string CarImageLimit = "Araç resmi en fazla 5 tane olabilir";
+        public static string CarImageNotFound = "Böyle bir resim bulunamıyor";
+        public static string CarImageDeleted = "Araç resmi silindi";
+        public static string CarImageUpdated = "Araç resmi güncellendi";
     }
 }
