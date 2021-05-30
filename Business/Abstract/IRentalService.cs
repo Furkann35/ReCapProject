@@ -6,8 +6,14 @@ using System.Text;
 
 namespace Business.Abstract
 {
-    public interface IRentalService :IServiceBase<Rental>
+    public interface IRentalService 
     {
         IResult RentalReturn(Rental rental);
+        IResult Add(Rental rental);
+        IResult Update(Rental rental);
+        IResult Delete(Rental rental);
+        IDataResult<List<Rental>> GetAll();
+        IDataResult<Rental> GetById(int id);
     }
 }
+
