@@ -35,12 +35,7 @@ namespace WebAPI
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddControllers();
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowOrigin",
-                    builder => builder.WithOrigins("http://localhost:3000"));
-            });
-
+            services.AddCors();
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -73,7 +68,7 @@ namespace WebAPI
             }
 
 
-            app.UseCors(builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader());
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 
             app.UseHttpsRedirection();
 
