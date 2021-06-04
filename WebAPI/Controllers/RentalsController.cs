@@ -41,15 +41,16 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getrentaldetails")]
-        public IActionResult GetRentalDetails()
+        public IActionResult GetRentalDetailsDto()
         {
-            var result =  _rentalService.GetRentalDetails();
+            var result =  _rentalService.GetRentalDetailsDto();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
+
         [HttpPost("add")]
         public IActionResult Add(Rental rental)
         {
