@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Business.Abstract
 {
-    public interface IRentalService 
+    public interface IRentalService
     {
         IResult RentalReturn(Rental rental);
         IResult Add(Rental rental);
@@ -16,7 +16,7 @@ namespace Business.Abstract
         IDataResult<List<Rental>> GetAll();
         IDataResult<Rental> GetById(int id);
         IDataResult<List<RentalDetailDto>> GetRentalDetailsDto();
-
+        IResult CarRentedCheck(Rental rental);
 
     }
 }

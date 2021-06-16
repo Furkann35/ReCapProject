@@ -38,8 +38,12 @@ namespace DataAccess.Concrete.EntityFramework
                                  DailyPrice = car.DailyPrice,
                                  ModelYear = car.ModelYear,
                                  Description = car.Description,
-                                 Images = (from i in context.CarImages where i.CarId == car.CarId select i.ImagePath).ToList()
-                                 };
+                                 CarName = car.CarName,
+                                 Images = (from i in context.CarImages where i.CarId == car.CarId select i.ImagePath).ToList(),
+                                 Rentals = (from r in context.Rentals
+                                                      where r.CarId == car.CarId
+                                                      select r).ToList()
+                             };
 
                 return result.ToList();
 
