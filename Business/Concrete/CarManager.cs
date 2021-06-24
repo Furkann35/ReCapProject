@@ -25,7 +25,7 @@ namespace Business.Concrete
             _carDal = carDal;
         }
         [ValidationAspect(typeof(CarValidator))]
-        [SecuredOperation("product.list,admin")]
+       // [SecuredOperation("product.list,admin")]
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
         {
