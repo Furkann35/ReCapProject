@@ -33,7 +33,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.BrandAdded);
         }
 
-        [SecuredOperation("admin")]
+        //[SecuredOperation("admin")]
 
         [CacheRemoveAspect("IBrandService.Get")]
         public IResult Delete(Brand brand)
