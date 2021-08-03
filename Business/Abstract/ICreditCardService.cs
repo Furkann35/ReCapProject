@@ -9,5 +9,8 @@ namespace Business.Abstract
     public interface ICreditCardService
     {
         IResult CheckCreditCard(CreditCard creditCard);
+
+        IDataResult<CreditCard> GetById(int id);
+
     }
 }

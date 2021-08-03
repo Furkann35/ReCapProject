@@ -28,5 +28,10 @@ namespace Business.Concrete
             }
 
         }
+
+        public IDataResult<CreditCard> GetById(int id)
+        {
+            return new SuccessDataResult<CreditCard>(_creditCardDal.Get(c => c.Id== id));
+        }
     }
 }
